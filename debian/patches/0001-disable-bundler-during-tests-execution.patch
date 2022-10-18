@@ -1,0 +1,32 @@
+From: Lucas Kanashiro <kanashiro@debian.org>
+Date: Fri, 27 Apr 2018 10:53:13 -0300
+Subject: disable bundler during tests execution
+
+Also require rspec-its in spec helper in order to make 'its' available in all
+test files.
+---
+ spec/spec_helper.rb | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/spec/spec_helper.rb b/spec/spec_helper.rb
+index fd379f8..e6cefd7 100644
+--- a/spec/spec_helper.rb
++++ b/spec/spec_helper.rb
+@@ -1,8 +1,5 @@
+ # encoding: binary
+ 
+-require 'bundler/setup'
+-Bundler.require(:test)
+-
+ begin
+   require 'simplecov'
+ 
+@@ -16,6 +13,8 @@ $: << File.expand_path('../../lib', __FILE__)
+ 
+ require "amq/protocol"
+ 
++require "rspec/its"
++
+ puts "Running on #{RUBY_VERSION}"
+ 
+ RSpec.configure do |config|

@@ -1,0 +1,28 @@
+Source: ruby-amq-protocol
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Tollef Fog Heen <tfheen@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               gem2deb (>= 1),
+               rake,
+               ruby-rspec,
+               ruby-rspec-its,
+Standards-Version: 4.6.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-amq-protocol.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-amq-protocol
+Homepage: https://github.com/ruby-amqp/amq-protocol
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-amq-protocol
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: AMQP 0.9.1 encoder & decoder
+ amq-protocol is an AMQP 0.9.1 serialization library for Ruby. It is not an
+ AMQP client: amq-protocol only handles serialization and deserialization.
+ If you want to write your own AMQP client, this gem can help you with that.
